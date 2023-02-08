@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/dji/static/css/main.cef62cdb.css",
+    "main.js": "/dji/static/js/main.ad90999e.js",
+    "static/js/787.06cd17ae.chunk.js": "/dji/static/js/787.06cd17ae.chunk.js",
+    "static/media/bootstrap-icons.woff?": "/dji/static/media/bootstrap-icons.6959d0d983ee318f8880.woff",
+    "static/media/bootstrap-icons.woff2?": "/dji/static/media/bootstrap-icons.b2e5aab643c6f0fd2da6.woff2",
+    "index.html": "/dji/index.html",
+    "main.cef62cdb.css.map": "/dji/static/css/main.cef62cdb.css.map",
+    "main.ad90999e.js.map": "/dji/static/js/main.ad90999e.js.map",
+    "787.06cd17ae.chunk.js.map": "/dji/static/js/787.06cd17ae.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cef62cdb.css",
+    "static/js/main.ad90999e.js"
+  ]
+}
