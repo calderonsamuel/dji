@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './Accordion.css'
 
 export class Accordion extends Component {
     constructor(props) {
@@ -8,13 +9,20 @@ export class Accordion extends Component {
            
         }
     }
+
+    badge(className: string) {
+      return(
+        <span className={"badge px-2 me-2 " + className} style={{height: "0.8rem"}}> </span>
+      )
+    }
     
     textInput(inputId: string, label: string, placeholder: string = "", helpText: string = "") {
       const helpTextWrapper = helpText.length > 0 ? <small id={inputId + "helpId"} className="form-text text-muted">{helpText}</small>:""
+      
       return(
         <div className="mb-3">
           <label htmlFor={inputId} className="form-label">
-            <span className="badge px-2 me-2 vi-ciudad" style={{height: "0.8rem", backgroundColor: "red"}}> </span>
+            {this.badge("vi-ciudad")}
             {label}
           </label>
           <input type="text"
@@ -23,7 +31,7 @@ export class Accordion extends Component {
         </div>
       )
     }
-
+    
     numericInput(inputId: string, label: string, value: number = 0, helpText: string = "") {
       const helpTextWrapper = helpText.length > 0 ? <small id={inputId + "helpId"} className="form-text text-muted">{helpText}</small>:""
       return(
