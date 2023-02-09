@@ -1,0 +1,33 @@
+#letterWrapper {
+    max-width: 900px;
+    margin: auto;
+    border-color: black;
+    border-width: thin;
+    border-style: solid;
+}
+
+.letterBody {
+    text-align: justify;
+}
+
+.table {
+    border-collapse: separate;
+    border-spacing:0 20px;
+    text-align: justify;
+}
+
+/* td {
+    max-width: 500px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+} */
+
+code {
+    border-radius: 5px;
+    color: #212529;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+}
