@@ -10,19 +10,19 @@ export class Accordion extends Component {
         }
     }
 
-    badge(className: string) {
-      return(
-        <span className={"badge px-2 me-2 " + className} style={{height: "0.8rem"}}> </span>
-      )
+    badge(className: string = "") {
+      if (className.length > 0) {
+        return(<span className={"badge px-2 me-2 " + className} style={{height: "0.8rem"}}> </span>)
+      }
     }
     
-    textInput(inputId: string, label: string, placeholder: string = "", helpText: string = "") {
+    textInput({inputId, label, placeholder = "", helpText = "", badgeClass = ""}) {
       const helpTextWrapper = helpText.length > 0 ? <small id={inputId + "helpId"} className="form-text text-muted">{helpText}</small>:""
       
       return(
         <div className="mb-3">
           <label htmlFor={inputId} className="form-label">
-            {this.badge("vi-ciudad")}
+            {this.badge(badgeClass)}
             {label}
           </label>
           <input type="text"
@@ -32,11 +32,12 @@ export class Accordion extends Component {
       )
     }
     
-    numericInput(inputId: string, label: string, value: number = 0, helpText: string = "") {
+    numericInput({inputId, label, value = 0, helpText = "", badgeClass = ""}) {
       const helpTextWrapper = helpText.length > 0 ? <small id={inputId + "helpId"} className="form-text text-muted">{helpText}</small>:""
       return(
         <div className="mb-3">
           <label htmlFor={inputId} className="form-label">
+            {this.badge(badgeClass)}
             {label}
           </label>
           <input 
@@ -54,13 +55,14 @@ export class Accordion extends Component {
       )
     }
 
-    selectInput() {
+    selectInput({inputId, label, choices = [], selected = "", badgeClass = ""}) {
       return(
         <div className="mb-3">
-          <label htmlFor="oportunidad" className="form-label">
-            Oportunidad
+          <label htmlFor={inputId} className="form-label">
+            {this.badge(badgeClass)}
+            {label}
           </label>
-          <select className="form-select" name="" id="oportunidad" defaultValue="al inicio">
+          <select className="form-select" name="" id={inputId} defaultValue="al inicio">
             <option value="" >al inicio</option>
             <option value="">periódica</option>
             <option value="">al cesar</option>
@@ -95,14 +97,14 @@ export class Accordion extends Component {
               </button>
             </h2>
             <div id="inputs-collapse" className="accordion-collapse collapse" aria-labelledby="inputs-heading" data-bs-parent="#accordionInputs">
-              <div className="accordion-body">
-                {this.textInput("ciudad", "Ciudad de remisión")}
-                {this.textInput("remitente", "Nombre de remitente")}
-                {this.textInput("dni", "N° de DNI", "Ejemplo: 07654321")}
-                {this.numericInput("folios", "N° de folios")}
-                {this.selectInput()}
-                {this.textInput("email", "Email")}
-                {this.textInput("telefono", "N° de teléfono", "Ejemplo: 987654321")}
+              <div className="accordion-body px-4">
+                {this.textInput({inputId: "ciudad", label: "Ciudad de remisión", badgeClass: "vi-ciudad"})}
+                {this.textInput({inputId: "remitente", label: "Nombre de remitente", badgeClass: "vi-remitente"})}
+                {this.textInput({inputId: "dni", label: "N° de DNI", placeholder: "Ejemplo: 07654321", badgeClass: "vi-dni"})}
+                {this.numericInput({inputId: "folios", label: "N° de folios", badgeClass: "vi-folios"})}
+                {this.selectInput({inputId: "oportunidad",label : "Oportunidad", badgeClass: "vi-oportunidad"})}
+                {this.textInput({inputId: "email", label: "Email", badgeClass: "vi-email"})}
+                {this.textInput({inputId: "telefono", label: "N° de teléfono", placeholder: "Ejemplo: 987654321", badgeClass: "vi-telefono"})}
               </div>
             </div>
           </div>
