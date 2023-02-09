@@ -1,3 +1,27 @@
 .vi-ciudad {
-    background-color: brown;
+    background-color: aquamarine;
+}
+
+.vi-remitente {
+    background-color: #ffe0c3;
+}
+
+.vi-dni {
+    background-color: #b7f7f4;
+}
+
+.vi-folios {
+    background-color: #cbff98;
+}
+
+.vi-oportunidad {
+    background-color: #e5caff;
+}
+
+.vi-email {
+    background-color: #92c5f7;
+}
+
+.vi-telefono {
+    background-color: khaki;
 }
