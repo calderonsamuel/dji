@@ -6,8 +6,23 @@ export class Accordion extends Component {
         super(props)
       
         this.state = {
-           
+          ciudad: "",
+          remitente: "",
+          dni: "",
+          folios: 0,
+          oportunidad: "",
+          email: "",
+          telefono:""
         }
+
+        this.onTextInputChange = this.onTextInputChange.bind(this);
+
+    }
+
+    onTextInputChange(event) {
+      this.setState({
+        [event.target.name]: event.target.value
+      });
     }
 
     badge(className: string = "") {
@@ -16,7 +31,14 @@ export class Accordion extends Component {
       }
     }
     
-    textInput({inputId, label, placeholder = "", helpText = "", badgeClass = ""}) {
+    textInput({
+      inputId, 
+      label, 
+      placeholder = "",
+      helpText = "", 
+      badgeClass = "",
+      value = ""
+    }) {
       const helpTextWrapper = helpText.length > 0 ? <small id={inputId + "helpId"} className="form-text text-muted">{helpText}</small>:""
       
       return(
@@ -25,8 +47,15 @@ export class Accordion extends Component {
             {this.badge(badgeClass)}
             {label}
           </label>
-          <input type="text"
-            className="form-control" name={inputId} id={inputId} aria-describedby={inputId + "helpId"} placeholder={placeholder} />
+          <input 
+            type="text"
+            className="form-control" 
+            name={inputId} id={inputId} 
+            aria-describedby={inputId + "helpId"} 
+            placeholder={placeholder} 
+            value = {value}
+            onChange={this.onTextInputChange}
+          />
           {helpTextWrapper}
         </div>
       )
